@@ -3,6 +3,8 @@ from django.db import models
 from django.core.validators import RegexValidator
 from rest_framework_simplejwt.tokens import RefreshToken
 
+from apps.user.managers import UserManager
+
 
 class User(AbstractUser):
     USERNAME_FIELD = 'phone'
@@ -43,6 +45,8 @@ class User(AbstractUser):
         max_length=200,
         blank=False
     )
+
+    objects = UserManager()
 
     def __str__(self):
         return f'User: {self.phone}'

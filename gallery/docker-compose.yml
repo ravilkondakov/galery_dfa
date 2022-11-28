@@ -19,8 +19,8 @@ services:
   db:
     image: postgres:13.3
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: hello_django
-      POSTGRES_DB: hello_django
+      POSTGRES_USER: env("SQL_USER")
+      POSTGRES_PASSWORD: env("SQL_PASSWORD")
+      POSTGRES_DB: env("SQL_DATABASE")
     ports:
       - "5433:5432"
